@@ -1,54 +1,70 @@
-Hangman Game
-A simple text-based Hangman game built in Python, where the player guesses a hidden word one letter at a time.
+# Basic Rule-Based Chatbot
 
-Description
-The program randomly selects a word from a predefined list and displays it as a series of underscores. The player guesses letters one at a time. Correct guesses reveal the letter's position(s) in the word; incorrect guesses reduce the player's remaining attempts and add to an ASCII-art hangman drawing. The player wins by guessing the full word before running out of attempts.
+A simple text-based chatbot built in Python that responds to user input using predefined rules.
 
-Features
-5 predefined words (no external files or APIs required)
-Maximum of 6 incorrect guesses per game
-ASCII-art hangman that updates with each wrong guess
-Input validation (rejects empty input, multiple characters, non-letters, and repeated guesses)
-Tracks and displays previously guessed letters
-Option to play multiple rounds without restarting the program
-Concepts Demonstrated
-random module — selecting a random word from a list
-while loops — controlling the main game loop and replay loop
-if-else statements — handling correct/incorrect guesses and validation
-Strings — building the masked word display, joining guessed letters
-Lists — storing the word bank and guessed letters
-How to Run
-Make sure Python 3 is installed on your machine.
+## Description
 
-Save hangman.py to a folder.
+The chatbot reads user input from the console and matches it against sets of known phrases (like greetings, "how are you", thanks, and goodbyes). Based on the match, it returns an appropriate predefined reply. If the input doesn't match any known pattern, it falls back to a generic response. The conversation continues in a loop until the user says a goodbye phrase (e.g., "bye", "exit", "quit").
 
-Open a terminal in that folder and run:
+## Features
 
-python hangman.py
-Follow the on-screen prompts to guess letters.
+- Recognizes common conversational inputs: greetings, "how are you", asking the bot's name, thanks, and goodbyes
+- Randomized replies within each category for more natural-feeling conversation
+- Graceful fallback response for unrecognized input
+- Handles empty input without crashing
+- Runs in a continuous loop until the user ends the conversation
 
-Example Gameplay
-Welcome to Hangman!
-Try to guess the word one letter at a time.
-You have 6 incorrect guesses allowed.
+## Concepts Demonstrated
 
-Word: _ _ _ _ _ _
-Guessed letters: None
-Incorrect guesses remaining: 6
+- `if-elif` statements — matching user input to the correct response category
+- Functions — `get_response()`, `is_goodbye()`, and `chat()` separate logic cleanly
+- Loops — `while True` loop keeps the conversation going until exit
+- Input/output — reading from the console with `input()` and printing responses
 
-Guess a letter: e
-Good guess! 'e' is in the word.
+## How to Run
 
-Word: _ _ e _ _ _
-Guessed letters: e
-Incorrect guesses remaining: 6
-File Structure
-hangman.py    # Main game script
+1. Make sure Python 3 is installed on your machine.
+2. Save `chatbot.py` to a folder.
+3. Open a terminal in that folder and run:
+
+   ```
+   python chatbot.py
+   ```
+
+4. Type messages like `hello`, `how are you`, or `bye` and press Enter.
+
+## Example Conversation
+
+```
+Chatbot: Hi! I'm a simple chatbot. Type 'bye' to exit.
+
+You: hello
+Chatbot: Hi!
+
+You: how are you
+Chatbot: I'm fine, thanks!
+
+You: thanks
+Chatbot: You're welcome!
+
+You: bye
+Chatbot: Goodbye!
+```
+
+## File Structure
+
+```
+chatbot.py    # Main chatbot script
 README.md     # Project documentation
-Possible Future Improvements
-Load words from an external file or API for a larger word bank
-Add difficulty levels (short vs. long words)
-Add a scoring system across multiple rounds
-Build a GUI version using Tkinter or a web version using Flask
-Author
+```
+
+## Possible Future Improvements
+
+- Use more flexible matching (e.g., check if a keyword appears anywhere in the sentence, not just exact matches)
+- Add more intents and responses (jokes, weather, small talk)
+- Store conversation history and use it for context-aware replies
+- Build a GUI version using Tkinter or a web version using Flask
+
+## Author
+
 Submitted as part of an internship assignment.
